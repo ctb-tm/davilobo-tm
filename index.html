@@ -6,44 +6,164 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
   <style>
-    body { margin: 0; background: #ff7900; color: #222; font-family: 'Roboto', Arial, sans-serif; }
+    /* Estilos Gerais */
+    body {
+      margin: 0;
+      background: #ff7900; /* Laranja principal */
+      color: #222; /* Texto escuro */
+      font-family: 'Roboto', Arial, sans-serif;
+    }
+
+    /* Cabeçalho */
     header {
-      background: #cccccc;
+      background: #cccccc; /* Cinza claro */
       text-align: center;
       padding: 36px 0 24px 0;
     }
-    .logo-davi { height: 120px; max-width: 340px; width: auto; margin: 0 auto 10px auto; display: block; }
-    .page-title { font-size: 2.2rem; font-weight: bold; color: #222; margin-bottom: 0; letter-spacing: 1px;}
-    nav { background: #eeeeee; display:flex; justify-content:center; gap:1rem; padding:10px 0 8px 0;}
+    .header-logo { /* Estilo para a logo viva.jpg no cabeçalho */
+      height: 120px; /* Altura fixa para a logo */
+      max-width: 340px; /* Largura máxima */
+      width: auto; /* Mantém a proporção */
+      margin: 0 auto 10px auto; /* Centraliza e adiciona margem inferior */
+      display: block; /* Garante que ocupe sua própria linha */
+    }
+    .page-title {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #222;
+      margin-bottom: 0;
+      letter-spacing: 1px;
+    }
+
+    /* Navegação */
+    nav {
+      background: #eeeeee; /* Cinza mais claro */
+      display: flex;
+      justify-content: center;
+      gap: 1rem; /* Espaçamento entre botões */
+      padding: 10px 0 8px 0;
+    }
     .nav-btn {
-      background: #ff7900; color: #222; border:none; padding:9px 32px; font-size:1.08rem; border-radius:4px; font-weight:bold;
-      cursor:pointer; transition:background 0.2s;
+      background: #ff7900; /* Laranja dos botões */
+      color: #222;
+      border: none;
+      padding: 9px 32px;
+      font-size: 1.08rem;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s; /* Transição suave de cor */
     }
-    .nav-btn.selected { background: #cccccc; color: #111;}
+    .nav-btn:hover {
+        background: #e66a00; /* Laranja um pouco mais escuro ao passar o mouse */
+    }
+    .nav-btn.selected {
+      background: #cccccc; /* Cor do botão selecionado */
+      color: #111;
+    }
+
+    /* Conteúdo Principal */
     main {
-      max-width: 820px; margin: 0 auto;
-      padding: 36px 20px 50px 20px; background: #ff7900;
-      border-radius: 0 0 34px 34px;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 36px 20px 50px 20px;
+      background: #ff7900; /* Laranja principal */
+      border-radius: 0 0 34px 34px; /* Borda arredondada na parte inferior */
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave para destacar o conteúdo */
     }
-    section { margin-bottom: 32px;}
-    h2 { font-size:1.35rem; color: #222; font-weight:bold; margin-bottom:14px; border-bottom:2px solid #fff1e0;}
-    p, ul, li { font-size:1.08rem; color: #222; line-height:1.72;}
-    .video-container {display:block;width:100%;max-width:580px;margin:18px auto;background:#444;border-radius:14px;box-shadow:0 2px 16px #ccc;}
-    video { width:100%; height:auto; background:#444; border-radius:12px; display:block;}
-    .album { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:22px;}
+    section {
+      margin-bottom: 32px;
+    }
+    h2 {
+      font-size: 1.35rem;
+      color: #222;
+      font-weight: bold;
+      margin-bottom: 14px;
+      border-bottom: 2px solid #fff1e0; /* Linha divisória */
+      padding-bottom: 5px; /* Espaço entre texto e linha */
+    }
+    p, ul, li {
+      font-size: 1.08rem;
+      color: #222;
+      line-height: 1.72;
+    }
+
+    /* Elementos Específicos */
+    .video-container {
+      display: block;
+      width: 100%;
+      max-width: 580px;
+      margin: 18px auto;
+      background: #444; /* Fundo escuro para o vídeo */
+      border-radius: 14px;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3); /* Sombra para o vídeo */
+    }
+    video {
+      width: 100%;
+      height: auto;
+      background: #444;
+      border-radius: 12px;
+      display: block;
+    }
+    .album {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsivo, mínimo 180px por coluna */
+      gap: 22px;
+      margin-top: 22px;
+    }
     .album img {
-      width:100%;height:180px;object-fit:cover;border-radius:12px;background:#fff1e0;border:2.5px solid #fff1e0;box-shadow:0 2px 12px #f27d1f55;display:block;transition:box-shadow .18s;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      background: #fff1e0;
+      border: 2.5px solid #fff1e0;
+      box-shadow: 0 2px 12px rgba(242, 125, 31, 0.33); /* Sombra suave para imagens */
+      display: block;
+      transition: box-shadow .18s;
     }
-    .album img:hover { box-shadow:0 8px 32px #ff790099; }
-    .tabela{width:100%;border-collapse:collapse;margin-top:12px;background:#fff1e0;color:#222;box-shadow:0 2px 8px #ff790088;}
-    .tabela th,.tabela td{padding:8px;border:1px solid #cccccc;}
-    .tabela tr:nth-child(even){background:#ffe1bf;}
-    .tabela tr:nth-child(odd){background:#fffaf5;}
+    .album img:hover {
+      box-shadow: 0 8px 32px rgba(255, 121, 0, 0.6); /* Sombra mais intensa no hover */
+    }
+    .tabela {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      background: #fff1e0;
+      color: #222;
+      box-shadow: 0 2px 8px rgba(255, 121, 0, 0.53);
+    }
+    .tabela th, .tabela td {
+      padding: 8px;
+      border: 1px solid #cccccc;
+      text-align: left; /* Alinhamento de texto padrão para tabelas */
+    }
+    .tabela th {
+        background: #ff7900;
+        color: white;
+        font-weight: bold;
+    }
+    .tabela tr:nth-child(even) {
+      background: #ffe1bf; /* Linhas pares */
+    }
+    .tabela tr:nth-child(odd) {
+      background: #fffaf5; /* Linhas ímpares */
+    }
+
+    /* Logo na página 4 */
+    .lie-logo {
+        max-width: 250px; /* Tamanho da logo na página LIE */
+        height: auto;
+        display: block;
+        margin: 20px auto 30px auto;
+        border-radius: 8px; /* Pequenas bordas arredondadas */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
   </style>
 </head>
 <body>
   <header>
-    <img src="davilogo.jpg" alt="Davi Lobo Mesatenista" class="logo-davi" />
+    <img src="viva.jpg" alt="Logo Viva Esporte" class="header-logo" /> 
     <div class="page-title">DAVI LOBO MESATENISTA</div>
   </header>
   <nav>
@@ -52,81 +172,140 @@
     <button class="nav-btn" onclick="showPage('projeto')">Projeto</button>
     <button class="nav-btn" onclick="showPage('lie')">LIE</button>
   </nav>
-  <!-- Página 1 -->
+
   <main id="inicio">
     <section>
       <h2>Histórico</h2>
       <p>
-        Davi Lobo Silva, 12 anos, estudante do Colégio Militar de Salvador, é um jovem atleta que une talento e determinação...
+        Davi Lobo Silva, 12 anos, estudante do Colégio Militar de Salvador, é um jovem atleta que une talento e determinação no tênis de mesa. Sua jornada começou cedo, e ele já demonstra grande potencial para se destacar no esporte, com um futuro promissor pela frente.
       </p>
     </section>
     <section>
       <h2>Vídeo Apresentação</h2>
       <div class="video-container">
-        <video src="video.mp4" controls poster="davi1.jpg"></video>
+        <video src="video.mp4" controls poster="davi1.jpg">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
       </div>
     </section>
     <section>
       <h2>Títulos e Conquistas</h2>
       <ul>
-        <li>3º lugar na Copa Brasil Sub-13</li>
-        <li>Vice-Campeão Sub-13...</li>
-        <!-- ... -->
+        <li>3º lugar na Copa Brasil Sub-13 (2023)</li>
+        <li>Vice-Campeão Baiano Sub-13 (2023)</li>
+        <li>Campeão Estadual por Equipes Sub-13 (2023)</li>
+        <li>Top 8 no Campeonato Brasileiro Sub-11 (2022)</li>
+        <li>Vários títulos em etapas estaduais e torneios regionais.</li>
       </ul>
     </section>
   </main>
-  <!-- Página 2 -->
+
   <main id="fotos" style="display:none;">
     <section>
       <h2>Álbum de Fotos</h2>
       <div class="album">
-        <img src="davi1.jpg" alt="Foto 1">
-        <img src="davi2.jpg" alt="Foto 2">
-        <img src="davi3.jpg" alt="Foto 3">
-        <img src="davi4.jpg" alt="Foto 4">
-        <img src="davi5.jpg" alt="Foto 5">
-        <img src="davi6.jpg" alt="Foto 6">
+        <img src="davi1.jpg" alt="Davi Lobo em ação 1">
+        <img src="davi2.jpg" alt="Davi Lobo em ação 2">
+        <img src="davi3.jpg" alt="Davi Lobo em ação 3">
+        <img src="davi4.jpg" alt="Davi Lobo no pódio">
+        <img src="davi5.jpg" alt="Davi Lobo treinando">
+        <img src="davi6.jpg" alt="Davi Lobo com a raquete">
       </div>
     </section>
   </main>
-  <!-- Página 3 -->
+
   <main id="projeto" style="display:none;">
     <section>
       <h2>Projeto Esportivo</h2>
+      <p>
+        O projeto visa o desenvolvimento contínuo de Davi Lobo como atleta de tênis de mesa, proporcionando o suporte necessário para sua evolução técnica, física e mental. Inclui participação em campeonatos nacionais e internacionais, treinamentos especializados e acompanhamento multidisciplinar.
+      </p>
       <ul>
-        <li><strong>Nome:</strong> Desenvolvimento Esportivo...</li>
-        <!-- ... -->
+        <li><strong>Nome do Projeto:</strong> Desenvolvimento Esportivo Davi Lobo</li>
+        <li><strong>Objetivo:</strong> Consolidar Davi Lobo como um atleta de alto rendimento no tênis de mesa brasileiro e internacional.</li>
+        <li><strong>Metas:</strong> Top 3 no ranking nacional Sub-13, participação em torneios sul-americanos, representação da seleção baiana.</li>
+        <li><strong>Período:</strong> 2024-2025</li>
       </ul>
     </section>
     <section>
-      <h2>Orçamento</h2>
+      <h2>Orçamento Necessário</h2>
       <table class="tabela">
-        <tr><th>Categoria</th><th>Valor (R$)</th></tr>
-        <!-- ... -->
+        <thead>
+          <tr>
+            <th>Categoria</th>
+            <th>Valor Anual (R$)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Passagens e Hospedagem (competições)</td><td>15.000,00</td></tr>
+          <tr><td>Inscrições em Torneios</td><td>3.000,00</td></tr>
+          <tr><td>Materiais Esportivos (raquetes, borrachas, etc.)</td><td>4.000,00</td></tr>
+          <tr><td>Treinamento Especializado</td><td>10.000,00</td></tr>
+          <tr><td>Acompanhamento Físico e Nutricional</td><td>6.000,00</td></tr>
+          <tr><td>Total Anual Estimado</td><td>38.000,00</td></tr>
+        </tbody>
       </table>
+      <p style="margin-top: 15px;">
+        Este orçamento é uma estimativa para cobrir os custos essenciais para a alta performance do atleta durante o ano.
+      </p>
     </section>
   </main>
-  <!-- Página 4 -->
+
   <main id="lie" style="display:none;">
     <section>
-      <h2>Lei de Incentivo ao Esporte</h2>
+      <h2>Lei de Incentivo ao Esporte (LIE) - Salvador</h2>
       <p>
-        A Prefeitura de Salvador regulamentou o Programa Viva Esporte...
+        A Prefeitura de Salvador, através da Secretaria Municipal de Esportes, Juventude e Lazer (SEMTEL), regulamentou o Programa Viva Esporte, que permite o incentivo fiscal para projetos esportivos. Empresas e pessoas físicas podem destinar parte do seu ISS e IPTU para apoiar atletas como Davi Lobo.
       </p>
-      <h2>Simulação Incentivo</h2>
+      <p>
+        O Programa Viva Esporte é uma excelente oportunidade para empresas e cidadãos contribuírem diretamente para o desenvolvimento do esporte na cidade, associando sua imagem a um projeto de sucesso e ao talento de Davi Lobo.
+      </p>
+      <img src="davilogo.jpg" alt="Logo Davi Lobo" class="lie-logo" /> 
+    </section>
+    <section>
+      <h2>Simulação de Incentivo Fiscal (Exemplo para Empresas)</h2>
       <table class="tabela">
-        <tr><th>Valor ISS</th><th>20% Viva Esporte</th><th>Aporte mensal</th></tr>
-        <!-- ... -->
+        <thead>
+          <tr>
+            <th>Valor de ISS a Pagar (mensal)</th>
+            <th>20% Destinável (Viva Esporte)</th>
+            <th>Aporte Mensal ao Projeto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>R$ 10.000,00</td><td>R$ 2.000,00</td><td>R$ 2.000,00</td></tr>
+          <tr><td>R$ 25.000,00</td><td>R$ 5.000,00</td><td>R$ 5.000,00</td></tr>
+          <tr><td>R$ 50.000,00</td><td>R$ 10.000,00</td><td>R$ 10.000,00</td></tr>
+          <tr><td>R$ 100.000,00</td><td>R$ 20.000,00</td><td>R$ 20.000,00</td></tr>
+        </tbody>
       </table>
+      <p style="margin-top: 15px;">
+        Empresas que pagam ISS em Salvador podem destinar até 20% do imposto devido para projetos esportivos aprovados, sem custo adicional para a empresa.
+      </p>
     </section>
   </main>
+
 <script>
-function showPage(page) {
-  document.querySelectorAll('main').forEach(el => el.style.display = 'none');
-  document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('selected'));
-  document.getElementById(page).style.display = '';
-  document.querySelector(`.nav-btn[onclick*="${page}"]`).classList.add('selected');
-}
+  // Função para exibir a página selecionada e destacar o botão correspondente
+  function showPage(pageId) {
+    // Esconde todas as seções de conteúdo principal
+    document.querySelectorAll('main').forEach(el => el.style.display = 'none');
+    
+    // Remove a classe 'selected' de todos os botões de navegação
+    document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('selected'));
+    
+    // Exibe a seção de conteúdo correspondente ao ID da página
+    document.getElementById(pageId).style.display = 'block'; // Use 'block' para exibir, pois 'main' é um elemento de bloco por padrão
+    
+    // Adiciona a classe 'selected' ao botão que ativou a página
+    document.querySelector(`.nav-btn[onclick*="${pageId}"]`).classList.add('selected');
+  }
+
+  // Opcional: Chamar showPage('inicio') ao carregar a página para garantir que a página inicial esteja visível.
+  // Isso já é tratado pelo 'selected' no HTML, mas é uma boa prática para JS puro.
+  document.addEventListener('DOMContentLoaded', () => {
+      // showPage('inicio'); // Descomentar se o display:none inicial em main for problemático
+  });
 </script>
 </body>
 </html>
