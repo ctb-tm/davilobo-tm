@@ -4,104 +4,79 @@
   <meta charset="UTF-8">
   <title>Davi Lobo Mesatenista</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      background: #ff7900; /* laranja de fundo */
-      color: #222; /* texto preto */
-      font-family: 'Roboto', Arial, sans-serif;
-    }
+    body { margin: 0; background: #ff7900; color: #222; font-family: 'Roboto', Arial, sans-serif; }
     header {
-      background: #cccccc; /* cinza */
-      padding: 32px 0 24px 0;
+      background: #cccccc;
       text-align: center;
+      padding: 36px 0 24px 0;
     }
-    .logo-davi {
-      height: 128px; /* tamanho médio/grande */
-      max-width: 340px;
-      width: auto;
-      margin: 0 auto 12px auto;
-      display: block;
-      background: none;
+    .logo-davi { height: 120px; max-width: 340px; width: auto; margin: 0 auto 10px auto; display: block; }
+    .page-title { font-size: 2.2rem; font-weight: bold; color: #222; margin-bottom: 0; letter-spacing: 1px;}
+    nav { background: #eeeeee; display:flex; justify-content:center; gap:1rem; padding:10px 0 8px 0;}
+    .nav-btn {
+      background: #ff7900; color: #222; border:none; padding:9px 32px; font-size:1.08rem; border-radius:4px; font-weight:bold;
+      cursor:pointer; transition:background 0.2s;
     }
-    h1 {
-      margin-top: 12px;
-      margin-bottom: 10px;
-      font-size: 2.6rem;
-      font-weight: bold;
-      letter-spacing: 1px;
-      color: #222;
-    }
+    .nav-btn.selected { background: #cccccc; color: #111;}
     main {
-      max-width: 740px;
-      margin: 0 auto;
-      padding: 36px 18px 48px 18px;
+      max-width: 820px; margin: 0 auto;
+      padding: 36px 20px 50px 20px; background: #ff7900;
+      border-radius: 0 0 34px 34px;
     }
-    section {
-      margin-bottom: 32px;
-    }
-    h2 {
-      margin-bottom: 16px;
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: #222;
-      border-bottom: 2px solid #fff1e0;
-      padding-bottom: 7px;
-    }
-    p, ul, li {
-      color: #222;
-      font-size: 1.08rem;
-      line-height: 1.7;
-    }
-    video {
-      display: block;
-      margin: 20px auto;
-      width: 100%;
-      max-width: 580px;
-      background: #444;
-      border-radius: 14px;
-      box-shadow: 0 2px 16px #ccc;
-    }
-    .album {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      margin-top: 22px;
-    }
+    section { margin-bottom: 32px;}
+    h2 { font-size:1.35rem; color: #222; font-weight:bold; margin-bottom:14px; border-bottom:2px solid #fff1e0;}
+    p, ul, li { font-size:1.08rem; color: #222; line-height:1.72;}
+    .video-container {display:block;width:100%;max-width:580px;margin:18px auto;background:#444;border-radius:14px;box-shadow:0 2px 16px #ccc;}
+    video { width:100%; height:auto; background:#444; border-radius:12px; display:block;}
+    .album { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:22px;}
     .album img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 13px;
-      background: #fff1e0;
-      display: block;
-      border: 2px solid #fff1e0;
-      box-shadow: 0 2px 12px #f27d1f55;
-      transition: box-shadow 0.2s;
+      width:100%;height:180px;object-fit:cover;border-radius:12px;background:#fff1e0;border:2.5px solid #fff1e0;box-shadow:0 2px 12px #f27d1f55;display:block;transition:box-shadow .18s;
     }
-    .album img:hover {
-      box-shadow: 0 6px 24px #ff790099;
-    }
+    .album img:hover { box-shadow:0 8px 32px #ff790099; }
+    .tabela{width:100%;border-collapse:collapse;margin-top:12px;background:#fff1e0;color:#222;box-shadow:0 2px 8px #ff790088;}
+    .tabela th,.tabela td{padding:8px;border:1px solid #cccccc;}
+    .tabela tr:nth-child(even){background:#ffe1bf;}
+    .tabela tr:nth-child(odd){background:#fffaf5;}
   </style>
 </head>
 <body>
   <header>
     <img src="davilogo.jpg" alt="Davi Lobo Mesatenista" class="logo-davi" />
-    <h1>DAVI LOBO MESATENISTA</h1>
+    <div class="page-title">DAVI LOBO MESATENISTA</div>
   </header>
-  <main>
+  <nav>
+    <button class="nav-btn selected" onclick="showPage('inicio')">Início</button>
+    <button class="nav-btn" onclick="showPage('fotos')">Fotos</button>
+    <button class="nav-btn" onclick="showPage('projeto')">Projeto</button>
+    <button class="nav-btn" onclick="showPage('lie')">LIE</button>
+  </nav>
+  <!-- Página 1 -->
+  <main id="inicio">
     <section>
       <h2>Histórico</h2>
       <p>
-        Davi Lobo Silva, 12 anos, estudante do Colégio Militar de Salvador, é um jovem atleta que une talento e determinação, conquistando espaço como uma das grandes revelações do tênis de mesa na Bahia. Sua trajetória na modalidade começou em 2024, de forma espontânea, durante os intervalos escolares. Com o tempo, passou a praticar também em espaços públicos com os amigos, momento em que sua afinidade com o esporte se fortaleceu.<br>
-        Em apenas um ano de prática, Davi transformou o entusiasmo inicial em desempenho consistente, alcançando conquistas de destaque que o consolidaram como uma das principais promessas do tênis de mesa no estado. Seu comprometimento e evolução técnica o levaram a superar adversários mais experientes, destacando-se em competições oficiais nas categorias Sub-13 e Sub-15.<br>
-        Alinhando disciplina acadêmica e dedicação esportiva, Davi vem demonstrando uma evolução notável. Com apoio da Federação de Tênis de Mesa da Bahia (FTMBA), segue em pleno desenvolvimento, buscando consolidar-se como referência nacional da nova geração e inspirar outros jovens atletas a acreditarem no poder transformador do esporte.
+        Davi Lobo Silva, 12 anos, estudante do Colégio Militar de Salvador, é um jovem atleta que une talento e determinação...
       </p>
     </section>
     <section>
       <h2>Vídeo Apresentação</h2>
-      <video src="video.mp4" controls poster="davi1.jpg"></video>
+      <div class="video-container">
+        <video src="video.mp4" controls poster="davi1.jpg"></video>
+      </div>
     </section>
+    <section>
+      <h2>Títulos e Conquistas</h2>
+      <ul>
+        <li>3º lugar na Copa Brasil Sub-13</li>
+        <li>Vice-Campeão Sub-13...</li>
+        <!-- ... -->
+      </ul>
+    </section>
+  </main>
+  <!-- Página 2 -->
+  <main id="fotos" style="display:none;">
     <section>
       <h2>Álbum de Fotos</h2>
       <div class="album">
@@ -113,7 +88,45 @@
         <img src="davi6.jpg" alt="Foto 6">
       </div>
     </section>
-    <!-- Adicione demais sessões conforme necessidade -->
   </main>
+  <!-- Página 3 -->
+  <main id="projeto" style="display:none;">
+    <section>
+      <h2>Projeto Esportivo</h2>
+      <ul>
+        <li><strong>Nome:</strong> Desenvolvimento Esportivo...</li>
+        <!-- ... -->
+      </ul>
+    </section>
+    <section>
+      <h2>Orçamento</h2>
+      <table class="tabela">
+        <tr><th>Categoria</th><th>Valor (R$)</th></tr>
+        <!-- ... -->
+      </table>
+    </section>
+  </main>
+  <!-- Página 4 -->
+  <main id="lie" style="display:none;">
+    <section>
+      <h2>Lei de Incentivo ao Esporte</h2>
+      <p>
+        A Prefeitura de Salvador regulamentou o Programa Viva Esporte...
+      </p>
+      <h2>Simulação Incentivo</h2>
+      <table class="tabela">
+        <tr><th>Valor ISS</th><th>20% Viva Esporte</th><th>Aporte mensal</th></tr>
+        <!-- ... -->
+      </table>
+    </section>
+  </main>
+<script>
+function showPage(page) {
+  document.querySelectorAll('main').forEach(el => el.style.display = 'none');
+  document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('selected'));
+  document.getElementById(page).style.display = '';
+  document.querySelector(`.nav-btn[onclick*="${page}"]`).classList.add('selected');
+}
+</script>
 </body>
 </html>
