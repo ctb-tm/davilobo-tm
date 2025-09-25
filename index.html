@@ -19,8 +19,9 @@
       background: #cccccc; /* Cinza claro */
       text-align: center;
       padding: 36px 0 24px 0;
+      position: relative; /* Necessário para posicionar o logo da página 4 */
     }
-    .header-logo { /* Estilo para a logo viva.jpg no cabeçalho */
+    .header-logo { /* Estilo para a logo viva.jpg no cabeçalho geral */
       height: 120px; /* Altura fixa para a logo */
       max-width: 340px; /* Largura máxima */
       width: auto; /* Mantém a proporção */
@@ -34,6 +35,16 @@
       margin-bottom: 0;
       letter-spacing: 1px;
     }
+    /* Estilo para a logo do Davi Lobo no cabeçalho da página 4 */
+    .header-davi-logo-lie {
+        position: absolute;
+        top: 15px; /* Ajuste a posição conforme necessário */
+        left: 15px; /* Ajuste a posição conforme necessário */
+        height: 80px; /* Tamanho menor para a logo secundária no cabeçalho */
+        width: auto;
+        display: none; /* Escondido por padrão, será exibido via JS */
+    }
+
 
     /* Navegação */
     nav {
@@ -74,6 +85,7 @@
     section {
       margin-bottom: 32px;
     }
+    /* Estilos dos Títulos e Boxes da Página Inicial */
     h2 {
       font-size: 1.35rem;
       color: #222;
@@ -81,7 +93,32 @@
       margin-bottom: 14px;
       border-bottom: 2px solid #fff1e0; /* Linha divisória */
       padding-bottom: 5px; /* Espaço entre texto e linha */
+      background: #ff7900; /* Fundo laranja 100% para os títulos */
+      color: black; /* Fontes pretas */
+      padding: 10px 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra suave */
     }
+    .content-box { /* Novo estilo para os boxes de Histórico e Títulos */
+        background-color: rgba(255, 121, 0, 0.1); /* Laranja sombreado 10% */
+        border: 1px solid #ff7900; /* Borda laranja */
+        padding: 20px;
+        margin-top: 15px;
+        margin-bottom: 25px;
+        color: #222; /* Fontes pretas */
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+    .content-box ul {
+        list-style-type: disc;
+        margin-left: 20px;
+        padding-left: 0;
+    }
+    .content-box li {
+        margin-bottom: 5px;
+    }
+
+
     p, ul, li {
       font-size: 1.08rem;
       color: #222;
@@ -153,14 +190,21 @@
     }
 
     /* Logo na página 4 */
-    .lie-logo {
-        max-width: 250px; /* Tamanho da logo na página LIE */
+    .lie-logo { /* davilogo.jpg na página LIE */
+        max-width: 250px;
         height: auto;
         display: block;
         margin: 20px auto 30px auto;
-        border-radius: 8px; /* Pequenas bordas arredondadas */
+        border-radius: 8px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
+    .viva-lie-logo { /* viva.png na página LIE, acima da tabela de ISS */
+        max-width: 180px;
+        height: auto;
+        display: block;
+        margin: 30px auto 15px auto;
+    }
+
 
     /* Estilos para o novo conteúdo do Projeto (Página 3) */
     .projeto-section-title { /* Estilo similar ao h2 existente */
@@ -265,6 +309,9 @@
             padding: 8px 15px;
             font-size: 0.9rem;
         }
+        .header-davi-logo-lie {
+            height: 60px;
+        }
     }
 
     @media (max-width: 480px) {
@@ -283,12 +330,16 @@
         .nav-btn {
             margin: 5px;
         }
+        .header-davi-logo-lie {
+            height: 50px;
+        }
     }
   </style>
 </head>
 <body>
   <header>
     <img src="viva.jpg" alt="Logo Viva Esporte" class="header-logo" /> 
+    <img src="davilogo.png" alt="Logo Davi Lobo" class="header-davi-logo-lie" id="daviLogoLieHeader" />
     <div class="page-title">DAVI LOBO MESATENISTA</div>
   </header>
   <nav>
@@ -310,34 +361,38 @@
     
     <section>
       <h2>Histórico</h2>
-      <p>
-        Davi Lobo Silva, 12 anos, estudante do Colégio Militar de Salvador, é um jovem atleta que une talento e determinação no tênis de mesa. Sua jornada começou cedo, e ele já demonstra grande potencial para se destacar no esporte, com um futuro promissor pela frente.
-      </p>
-      <p>
-        Desde os primeiros contatos com a raquete, Davi mostrou uma habilidade natural e uma paixão pelo tênis de mesa. Com disciplina nos treinos e foco nas competições, ele vem conquistando resultados expressivos em sua categoria, projetando-se como uma das grandes promessas do esporte na Bahia e no Brasil.
-      </p>
+      <div class="content-box">
+        <p>
+          Davi Lobo Silva, 12 anos, estudante do Colégio Militar de Salvador, é um jovem atleta que une talento e determinação no tênis de mesa. Sua jornada começou cedo, e ele já demonstra grande potencial para se destacar no esporte, com um futuro promissor pela frente.
+        </p>
+        <p>
+          Desde os primeiros contatos com a raquete, Davi mostrou uma habilidade natural e uma paixão pelo tênis de mesa. Com disciplina nos treinos e foco nas competições, ele vem conquistando resultados expressivos em sua categoria, projetando-se como uma das grandes promessas do esporte na Bahia e no Brasil.
+        </p>
+      </div>
     </section>
     
     <section>
       <h2>Títulos e Conquistas</h2>
-      <ul>
-        <li><strong>2025</strong></li>
-        <li>3º lugar – Copa Brasil de Tênis de Mesa Sub-13</li>
-        <li>Vice-Campeão Sub-13 – 1ª Etapa do Campeonato Baiano</li>
-        <li>Vice-Campeão Sub-13 – 2ª Etapa do Campeonato Baiano</li>
-        <li>3º lugar Sub-13 – 3ª Etapa do Campeonato Baiano</li>
-        <li>Vice-Campeão Sub-13 – 4ª Etapa do Campeonato Baiano</li>
-        <li>3º lugar Sub-15 – Campeonato Baiano</li>
-        <li>Vice-Campeão Sub-15 – Rating F</li>
-        <li>3º lugar Sub-15 – Rating E</li>
-        <li>Campeão – Torneio Principiante da ABTM</li>
-        <li>Vice-Campeão – Divisão Infantil da ETMPAN</li>
-        <li>3º lugar – Divisão Infantil da ETMPAN</li>
-        <li>3x Vice-Campeão – 3ª Divisão da ETMPAN</li>
-        <li>Campeão – 3ª Divisão da ETMPAN</li>
-        <li>3º lugar – 3ª Divisão da ETMPAN</li>
-        <li>3º lugar – 2ª Divisão da ETMPAN</li>
-      </ul>
+      <div class="content-box">
+        <ul>
+          <li><strong>2025</strong></li>
+          <li>3º lugar – Copa Brasil de Tênis de Mesa Sub-13</li>
+          <li>Vice-Campeão Sub-13 – 1ª Etapa do Campeonato Baiano</li>
+          <li>Vice-Campeão Sub-13 – 2ª Etapa do Campeonato Baiano</li>
+          <li>3º lugar Sub-13 – 3ª Etapa do Campeonato Baiano</li>
+          <li>Vice-Campeão Sub-13 – 4ª Etapa do Campeonato Baiano</li>
+          <li>3º lugar Sub-15 – Campeonato Baiano</li>
+          <li>Vice-Campeão Sub-15 – Rating F</li>
+          <li>3º lugar Sub-15 – Rating E</li>
+          <li>Campeão – Torneio Principiante da ABTM</li>
+          <li>Vice-Campeão – Divisão Infantil da ETMPAN</li>
+          <li>3º lugar – Divisão Infantil da ETMPAN</li>
+          <li>3x Vice-Campeão – 3ª Divisão da ETMPAN</li>
+          <li>Campeão – 3ª Divisão da ETMPAN</li>
+          <li>3º lugar – 3ª Divisão da ETMPAN</li>
+          <li>3º lugar – 2ª Divisão da ETMPAN</li>
+        </ul>
+      </div>
     </section>
   </main>
 
@@ -423,28 +478,26 @@
   </main>
 
   <main id="lie" style="display:none;">
-    <!-- Bloco informativo: Programa Viva Esporte (SEMPRE) -->
-<section aria-labelledby="viva-esporte" style="max-width:900px;margin:24px auto;padding:0 16px;font-family:Arial, sans-serif;">
-  <h2 id="viva-esporte" style="background:#333;color:#fff;padding:12px 16px;margin:0;font-size:1.15rem;font-weight:700;">
-    Programa Viva Esporte — Secretaria de Promoção Social, Combate à Pobreza, Esportes e Lazer (SEMPRE)
-  </h2>
+    <section>
+      <div class="projeto-section-title" style="background:#ff7900;color:#fff;">
+        Programa Viva Esporte — Secretaria de Promoção Social, Combate à Pobreza, Esportes e Lazer (SEMPRE)
+      </div>
+      <div class="projeto-box">
+        <p>
+          A Prefeitura de Salvador, por meio da <strong>Secretaria de Promoção Social, Combate à Pobreza, Esportes e Lazer (SEMPRE)</strong>, regulamentou o <strong>Programa Viva Esporte</strong>, que viabiliza o incentivo fiscal para projetos esportivos.
+        </p>
+        <p>
+          Esse programa permite que <strong>empresas e pessoas físicas</strong> destinem parte do <em>ISS</em> e do <em>IPTU</em> diretamente para apoiar iniciativas esportivas na capital baiana. Com isso, atletas como <strong>Davi Lobo Silva</strong>, jovem promessa do tênis de mesa, podem contar com recursos fundamentais para seu desenvolvimento técnico e competitivo.
+        </p>
+        <p>
+          O <strong>Programa Viva Esporte</strong> representa uma oportunidade estratégica para quem deseja investir no esporte. Além de fortalecer a base esportiva de Salvador, empresas e cidadãos que participam associam sua imagem a valores como <strong>superação, disciplina e impacto social</strong>, tornando-se parceiros de projetos de sucesso e de talentos que orgulham a cidade.
+        </p>
+      </div>
+    </section>
 
-  <div style="background:rgba(255,165,0,0.10);border:2px solid #FFA500;padding:18px;color:#000;margin-top:12px;box-shadow:0 2px 6px rgba(0,0,0,0.03);">
-    <p style="margin:0 0 12px 0;line-height:1.6;">
-      A Prefeitura de Salvador, por meio da <strong>Secretaria de Promoção Social, Combate à Pobreza, Esportes e Lazer (SEMPRE)</strong>, regulamentou o <strong>Programa Viva Esporte</strong>, que viabiliza o incentivo fiscal para projetos esportivos.
-    </p>
-
-    <p style="margin:0 0 12px 0;line-height:1.6;">
-      Esse programa permite que <strong>empresas e pessoas físicas</strong> destinem parte do <em>ISS</em> e do <em>IPTU</em> diretamente para apoiar iniciativas esportivas na capital baiana. Com isso, atletas como <strong>Davi Lobo Silva</strong>, jovem promessa do tênis de mesa, podem contar com recursos fundamentais para seu desenvolvimento técnico e competitivo.
-    </p>
-
-    <p style="margin:0;line-height:1.6;">
-      O <strong>Programa Viva Esporte</strong> representa uma oportunidade estratégica para quem deseja investir no esporte. Além de fortalecer a base esportiva de Salvador, empresas e cidadãos que participam associam sua imagem a valores como <strong>superação, disciplina e impacto social</strong>, tornando-se parceiros de projetos de sucesso e de talentos que orgulham a cidade.
-    </p>
-  </div>
-</section>
-
+    <section>
       <h2>Simulação de Incentivo Fiscal (Exemplo para Empresas)</h2>
+      <img src="viva.png" alt="Logo Viva Esporte LIE" class="viva-lie-logo" /> 
       <table class="tabela">
         <thead>
           <tr>
@@ -478,6 +531,14 @@
     document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('selected'));
     document.getElementById(pageId).style.display = 'block';
     document.querySelector(`.nav-btn[onclick*="${pageId}"]`).classList.add('selected');
+
+    // Lógica para mostrar/esconder o logo "davilogo.png" no cabeçalho
+    const daviLogoLieHeader = document.getElementById('daviLogoLieHeader');
+    if (pageId === 'lie') {
+        daviLogoLieHeader.style.display = 'block'; // Exibe o logo no cabeçalho na página LIE
+    } else {
+        daviLogoLieHeader.style.display = 'none'; // Esconde em outras páginas
+    }
   }
 
   // Lógica do Modal para expandir imagens
@@ -506,6 +567,19 @@
   document.addEventListener('keydown', function(e) {
     if (e.key === "Escape" && modal.style.display === "block") {
       closeModal();
+    }
+  });
+
+  // Garante que a lógica do logo do cabeçalho seja aplicada ao carregar a página
+  document.addEventListener('DOMContentLoaded', () => {
+    // Determine qual página está selecionada por padrão e chame showPage
+    const initialPageButton = document.querySelector('.nav-btn.selected');
+    if (initialPageButton) {
+      const initialPageId = initialPageButton.getAttribute('onclick').match(/'([^']+)'/)[1];
+      showPage(initialPageId); // Chama showPage para aplicar a lógica do logo
+    } else {
+      // Caso não haja botão selecionado, esconda o logo por segurança
+      document.getElementById('daviLogoLieHeader').style.display = 'none';
     }
   });
 </script>
