@@ -27,12 +27,7 @@
       margin: 0 auto 10px auto; /* Centraliza e adiciona margem inferior */
       display: block; /* Garante que ocupe sua própria linha */
     }
-    .header-logo-secondary { /* Estilo para a logo secundária (viva.jpg) */
-        height: 120px; /* Altura original do viva.jpg */
-        width: auto;
-        margin: 0 auto 10px auto;
-        display: none; /* Escondido por padrão, será exibido via JS */
-    }
+    /* Removido o estilo .header-logo-secondary pois não será mais usado no cabeçalho */
     .page-title {
       font-size: 2.2rem;
       font-weight: bold;
@@ -286,9 +281,7 @@
         .header-logo-main {
             height: 120px; /* Ajuste para telas menores */
         }
-        .header-logo-secondary {
-            height: 70px; /* Ajuste para telas menores */
-        }
+        /* Removido o estilo .header-logo-secondary responsivo */
         .page-title {
             font-size: 1.8rem;
         }
@@ -305,9 +298,7 @@
         .header-logo-main {
             height: 90px; /* Ajuste para telas menores */
         }
-        .header-logo-secondary {
-            height: 50px; /* Ajuste para telas menores */
-        }
+        /* Removido o estilo .header-logo-secondary responsivo */
         .page-title {
             font-size: 1.5rem;
         }
@@ -322,8 +313,7 @@
 </head>
 <body>
   <header>
-    <img src="davilogo.png" alt="Logo Davi Lobo" class="header-logo-main" id="daviLogoMainHeader" /> 
-    <img src="viva.jpg" alt="Logo Viva Esporte" class="header-logo-secondary" id="vivaLogoHeader" />
+    <img src="davilogo.png" alt="Logo Davi Lobo" class="header-logo-main" /> 
     <div class="page-title">DAVI LOBO MESATENISTA</div>
   </header>
   <nav>
@@ -516,18 +506,8 @@
     document.getElementById(pageId).style.display = 'block';
     document.querySelector(`.nav-btn[onclick*="${pageId}"]`).classList.add('selected');
 
-    const daviLogoMainHeader = document.getElementById('daviLogoMainHeader');
-    const vivaLogoHeader = document.getElementById('vivaLogoHeader');
-    
-    // Mostra o logo principal do Davi em todas as páginas
-    daviLogoMainHeader.style.display = 'block'; 
-
-    // O logo Viva Esporte (viva.jpg) deve aparecer em todas as páginas, exceto 'lie'
-    if (pageId === 'lie') {
-        vivaLogoHeader.style.display = 'none'; // Esconde na página LIE
-    } else {
-        vivaLogoHeader.style.display = 'block'; // Mostra nas outras páginas
-    }
+    // A logo davilogo.png no cabeçalho não precisa de manipulação JS para visibilidade,
+    // pois é a única presente e sempre visível.
   }
 
   // Lógica do Modal para expandir imagens
@@ -559,19 +539,16 @@
     }
   });
 
-  // Garante que a lógica do logo do cabeçalho seja aplicada ao carregar a página
+  // Garante que a página inicial esteja visível por padrão ao carregar a página.
+  // A logo do cabeçalho já está definida para sempre aparecer.
   document.addEventListener('DOMContentLoaded', () => {
-    // Determine qual página está selecionada por padrão e chame showPage
     const initialPageButton = document.querySelector('.nav-btn.selected');
     if (initialPageButton) {
       const initialPageId = initialPageButton.getAttribute('onclick').match(/'([^']+)'/)[1];
-      showPage(initialPageId); // Chama showPage para aplicar a lógica do logo
+      showPage(initialPageId); 
     } else {
-      // Caso não haja botão selecionado, exiba o logo padrão
-      document.getElementById('daviLogoMainHeader').style.display = 'block';
-      document.getElementById('vivaLogoHeader').style.display = 'block';
-      // Assegura que a página inicial esteja visível por padrão se não houver seleção
       document.getElementById('inicio').style.display = 'block';
+      document.querySelector(`.nav-btn[onclick*="inicio"]`).classList.add('selected');
     }
   });
 </script>
