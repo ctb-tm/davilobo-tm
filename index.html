@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Davi Lobo Silva</title>
+  <title>Davi Lobo Mesatenista</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
   <style>
@@ -10,7 +10,7 @@
     body {
       margin: 0;
       background: #ff7900; /* Laranja principal */
-      color: #222; /* Texto escuro */
+      color: #222; /* Texto escuro padrão (que não estiver dentro de um content-box com nova cor) */
       font-family: 'Roboto', Arial, sans-serif;
     }
 
@@ -74,10 +74,10 @@
     section {
       margin-bottom: 32px;
     }
-    /* Estilos dos Títulos e Boxes da Página Inicial */
+    /* Estilos dos Títulos (h2) - Padrão e Específicos */
     h2 {
       font-size: 1.35rem;
-      color: black;
+      color: black; /* Cor padrão para h2, será sobrescrita por regras mais específicas */
       font-weight: bold;
       margin-bottom: 14px;
       background: #ff7900; /* Fundo laranja 100% para os títulos */
@@ -87,6 +87,24 @@
       border-bottom: none;
       margin-top: 30px;
     }
+
+    /* NOVO: Títulos (h2) na Página Inicial - Branco e Negrito */
+    main#inicio h2 {
+        color: white; /* Fonte branca */
+        font-weight: bold; /* Negrito */
+    }
+
+    /* NOVO: Título (h2) na Página Fotos - Branco e Negrito */
+    main#fotos h2 {
+        color: white; /* Fonte branca */
+        font-weight: bold; /* Negrito */
+    }
+
+    /* NOVO: Título (h2) na Página LIE (Simulação...) - Branco e Negrito */
+    main#lie h2 {
+        color: white; /* Fonte branca */
+        font-weight: bold; /* Negrito */
+    }
     
     /* DEFINIÇÃO ÚNICA E FORTE para os content-box da página inicial */
     main#inicio .content-box { 
@@ -95,12 +113,11 @@
         padding: 20px;
         margin-top: 15px;
         margin-bottom: 25px;
-        color: #222;
+        color: #ffffff; /* Cor da fonte branca para o content-box */
         border-radius: 12px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        /* Garantir que nada esteja sobrepondo o background */
-        position: relative; /* Pode ajudar em alguns casos de sobreposição */
-        z-index: 1; /* Garante que está acima de outros elementos de baixo z-index */
+        position: relative;
+        z-index: 1;
     }
     /* Estilo genérico para content-box se for usado em outras páginas com outro fundo, 
        mas na página "inicio" o acima será aplicado. */
@@ -109,27 +126,26 @@
         padding: 20px;
         margin-top: 15px;
         margin-bottom: 25px;
-        color: #222;
+        /* color: #222; // Removido ou substituído para que a regra mais específica prevaleça */
         border-radius: 12px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
 
+    /* Força a cor branca para os parágrafos e itens de lista DENTRO do content-box da página inicial */
+    main#inicio .content-box p,
+    main#inicio .content-box ul,
+    main#inicio .content-box li {
+        color: #ffffff; /* Força a cor branca para o texto */
+    }
 
-    .content-box p {
-        margin-bottom: 1em;
-    }
-    .content-box ul {
-        list-style-type: disc;
-        margin-left: 20px;
-        padding-left: 0;
-    }
-    .content-box li {
-        margin-bottom: 5px;
+    /* Certifica que links e <strong> tags dentro do content-box também herdem ou sejam brancos, se aplicável */
+    main#inicio .content-box strong {
+        color: #ffffff; /* Garante que negritos também sejam brancos */
     }
 
     p, ul, li {
       font-size: 1.08rem;
-      color: #222;
+      color: #222; /* Cor padrão para outros parágrafos/listas fora do content-box */
       line-height: 1.72;
     }
 
@@ -208,7 +224,7 @@
     }
 
     .viva-lie-logo {
-        height: 120px; /* Altura de 120px para viva.png */
+        height: 139px; /* Altura de 139px para viva.png */
         width: auto; /* Largura automática para manter proporção */
         display: block;
         margin: 0 auto; /* Centraliza a imagem dentro do container */
@@ -230,9 +246,14 @@
       border: 2px solid #ff7900;
       padding: 20px;
       margin: 0 0 25px 0;
-      color: #222;
+      color: #222; /* Cor padrão para texto dentro do projeto-box */
       border-radius: 8px;
     }
+    /* NOVO: Contorno preto para o box de Objetivo na página Projetos */
+    main#projeto .projeto-box:first-of-type { /* Seleciona o primeiro .projeto-box (Objetivo) */
+        border: 2px solid black; /* Contorno preto */
+    }
+
     .projeto-box ul {
         list-style-type: disc;
         margin-left: 20px;
@@ -355,7 +376,7 @@
 <body>
   <header>
     <img src="davilogo.png" alt="Logo Davi Lobo" class="header-logo-main" /> 
-    <div class="page-title">DAVI LOBO SILVA</div>
+    <div class="page-title">DAVI LOBO MESATENISTA</div>
   </header>
   <nav>
     <button class="nav-btn selected" onclick="showPage('inicio')">Início</button>
@@ -366,8 +387,7 @@
 
   <main id="inicio">
     <section>
-      <h2>Apresentação</h2>
-      <div class="video-container">
+      <h2>Apresentação</h2> <div class="video-container">
         <video src="video.mp4" controls poster="davi1.jpg">
             Seu navegador não suporta a tag de vídeo.
         </video>
@@ -422,8 +442,7 @@
 
   <main id="fotos" style="display:none;">
     <section>
-      <h2>Álbum de Fotos</h2>
-      <div class="album">
+      <h2>Álbum de Fotos</h2> <div class="album">
         <img src="davi1.jpg" alt="Davi Lobo em ação 1" onclick="openModal(this)">
         <img src="davi2.jpg" alt="Davi Lobo em ação 2" onclick="openModal(this)">
         <img src="davi3.jpg" alt="Davi Lobo em ação 3" onclick="openModal(this)">
@@ -478,7 +497,7 @@
     </section>
     
     <section>
-      <h2>Orçamento</h2>
+      <h2>Orçamento Necessário</h2>
       <table class="tabela">
         <thead>
           <tr>
@@ -520,8 +539,7 @@
     </section>
 
     <section>
-      <h2>Simulação de Incentivo Fiscal (Exemplo para Empresas)</h2>
-      <div class="viva-logo-container"> 
+      <h2>Simulação de Incentivo Fiscal (Exemplo para Empresas)</h2> <div class="viva-logo-container"> 
         <img src="viva.png" alt="Logo Viva Esporte LIE" class="viva-lie-logo" /> 
       </div>
       <table class="tabela">
