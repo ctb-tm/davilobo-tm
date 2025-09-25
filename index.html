@@ -18,13 +18,13 @@
     header {
       background: #cccccc; /* Cinza claro */
       text-align: center;
-      padding: 20px 0 15px 0; /* Ajustado para reduzir a altura do cabeçalho */
+      padding: 15px 0 10px 0; /* REDUZIDO: Padding para diminuir a altura do cabeçalho */
       position: relative;
     }
     .header-logo-main {
-      height: 160px; /* Altura de 160px para davilogo.png */
+      height: 120px; /* ALTERADO: Altura de 120px para davilogo.png */
       width: auto; /* Mantém a proporção */
-      margin: 0 auto 8px auto; /* Centraliza e adiciona margem inferior menor */
+      margin: 0 auto 5px auto; /* Centraliza e adiciona margem inferior menor */
       display: block;
     }
     .page-title {
@@ -98,7 +98,7 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
     .content-box p {
-        margin-bottom: 1em;
+        margin-bottom: 1em; /* Garante espaçamento entre parágrafos no box */
     }
     .content-box ul {
         list-style-type: disc;
@@ -180,7 +180,7 @@
     }
 
     /* Fundo da logo Viva Esporte na página LIE */
-    .viva-logo-container { /* Novo container para o fundo */
+    .viva-logo-container {
       background-color: rgba(255, 121, 0, 0.1); /* Laranja sombreado 10% */
       padding: 20px 0; /* Espaçamento vertical para o fundo */
       margin: 30px 0 15px 0; /* Margem para separar de outros elementos, laterais 100% vêm do main */
@@ -190,7 +190,7 @@
     }
 
     .viva-lie-logo {
-        height: 160px; /* Altura de 160px para viva.png */
+        height: 139px; /* ALTERADO: Altura de 139px para viva.png */
         width: auto; /* Largura automática para manter proporção */
         display: block;
         margin: 0 auto; /* Centraliza a imagem dentro do container */
@@ -290,7 +290,7 @@
             grid-template-columns: repeat(2, 1fr);
         }
         .header-logo-main {
-            height: 100px;
+            height: 90px; /* Ajuste responsivo para davilogo.png */
         }
         .page-title {
             font-size: 1.8rem;
@@ -299,12 +299,12 @@
             padding: 8px 15px;
             font-size: 0.9rem;
         }
-        .viva-logo-container { /* Ajuste responsivo para o container da logo viva */
+        .viva-logo-container {
             padding: 15px 0;
             margin: 20px 0 10px 0;
         }
         .viva-lie-logo {
-            height: 120px;
+            height: 110px; /* Ajuste responsivo para viva.png */
         }
     }
 
@@ -313,7 +313,7 @@
             grid-template-columns: 1fr;
         }
         .header-logo-main {
-            height: 80px;
+            height: 70px; /* Ajuste responsivo para davilogo.png */
         }
         .page-title {
             font-size: 1.5rem;
@@ -324,12 +324,12 @@
         .nav-btn {
             margin: 5px;
         }
-        .viva-logo-container { /* Ajuste responsivo para o container da logo viva */
+        .viva-logo-container {
             padding: 10px 0;
             margin: 15px 0 8px 0;
         }
         .viva-lie-logo {
-            height: 100px;
+            height: 90px; /* Ajuste responsivo para viva.png */
         }
     }
   </style>
@@ -360,10 +360,19 @@
       <h2>Histórico</h2>
       <div class="content-box">
         <p>
-          Davi Lobo Silva, 12 anos, estudante do Colégio Militar de Salvador, é um jovem atleta que une talento e determinação no tênis de mesa. Sua jornada começou cedo, e ele já demonstra grande potencial para se destacar no esporte, com um futuro promissor pela frente.
+          Mesmo com pouco tempo de prática, Davi Lobo Silva já coleciona resultados que confirmam seu talento como uma das grandes promessas do tênis de mesa baiano e nacional.
         </p>
         <p>
-          Desde os primeiros contatos com a raquete, Davi mostrou uma habilidade natural e uma paixão pelo tênis de mesa. Com disciplina nos treinos e foco nas competições, ele vem conquistando resultados expressivos em sua categoria, projetando-se como uma das grandes promessas do esporte na Bahia e no Brasil.
+          Na categoria Sub-13, conquistou o 3º lugar na Copa Brasil de Tênis de Mesa, além de três vice-campeonatos nas etapas do Campeonato Baiano e um 3º lugar em outra etapa, sempre figurando entre os melhores do estado. Esses resultados o colocaram em posição de destaque no ranking baiano, mostrando consistência e competitividade.
+        </p>
+        <p>
+          Já competindo entre atletas mais velhos, na categoria Sub-15, Davi alcançou o vice-campeonato no Rating F e o 3º lugar no Rating E, além de subir ao pódio no Campeonato Baiano com um sólido 3º lugar.
+        </p>
+        <p>
+          Sua versatilidade também se reflete em torneios de diferentes níveis. Foi campeão do Torneio Principiante da ABTM, além de acumular conquistas marcantes na tradicional ETMPAN, onde já foi vice-campeão da Divisão Infantil, terceiro colocado na mesma categoria, tricampeão como vice na 3ª Divisão, campeão desta mesma divisão e também medalhista de bronze na 2ª Divisão.
+        </p>
+        <p>
+          Esse conjunto de conquistas demonstra não apenas a evolução acelerada de Davi, mas também sua capacidade de competir em diferentes categorias e contextos, sempre com resultados expressivos. Seu currículo competitivo confirma o potencial de crescimento e a relevância de seu projeto esportivo.
         </p>
       </div>
     </section>
@@ -494,7 +503,8 @@
 
     <section>
       <h2>Simulação de Incentivo Fiscal (Exemplo para Empresas)</h2>
-      <div class="viva-logo-container"> <img src="viva.png" alt="Logo Viva Esporte LIE" class="viva-lie-logo" /> 
+      <div class="viva-logo-container"> 
+        <img src="viva.png" alt="Logo Viva Esporte LIE" class="viva-lie-logo" /> 
       </div>
       <table class="tabela">
         <thead>
