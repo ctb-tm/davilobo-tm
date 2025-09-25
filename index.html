@@ -19,14 +19,19 @@
       background: #cccccc; /* Cinza claro */
       text-align: center;
       padding: 36px 0 24px 0;
-      position: relative; /* Necessário para posicionar o logo da página 4 */
+      position: relative; /* Necessário para posicionar outros elementos se houver */
     }
-    .header-logo { /* Estilo para a logo davilogo.png no cabeçalho geral */
-      height: 220px; /* Altura fixa para a logo */
-      max-width: 400px; /* Largura máxima */
+    .header-logo-main { /* Estilo para a logo principal (agora davilogo.png) */
+      height: 200px; /* Altura de 200px */
       width: auto; /* Mantém a proporção */
       margin: 0 auto 10px auto; /* Centraliza e adiciona margem inferior */
       display: block; /* Garante que ocupe sua própria linha */
+    }
+    .header-logo-secondary { /* Estilo para a logo secundária (viva.jpg) */
+        height: 120px; /* Altura original do viva.jpg */
+        width: auto;
+        margin: 0 auto 10px auto;
+        display: none; /* Escondido por padrão, será exibido via JS */
     }
     .page-title {
       font-size: 2.2rem;
@@ -35,16 +40,6 @@
       margin-bottom: 0;
       letter-spacing: 1px;
     }
-    /* Estilo para a logo do Davi Lobo no cabeçalho da página 4 */
-    .header-davi-logo-lie {
-        position: absolute;
-        top: 15px; /* Ajuste a posição conforme necessário */
-        left: 15px; /* Ajuste a posição conforme necessário */
-        height: 80px; /* Tamanho menor para a logo secundária no cabeçalho */
-        width: auto;
-        display: none; /* Escondido por padrão, será exibido via JS */
-    }
-
 
     /* Navegação */
     nav {
@@ -88,16 +83,15 @@
     /* Estilos dos Títulos e Boxes da Página Inicial */
     h2 {
       font-size: 1.35rem;
-      color: #222;
+      color: black; /* Fontes pretas */
       font-weight: bold;
       margin-bottom: 14px;
-      border-bottom: 2px solid #fff1e0; /* Linha divisória */
-      padding-bottom: 5px; /* Espaço entre texto e linha */
       background: #ff7900; /* Fundo laranja 100% para os títulos */
-      color: black; /* Fontes pretas */
       padding: 10px 15px;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra suave */
+      border-bottom: none; /* Removendo a borda de h2 para não conflitar visualmente */
+      margin-top: 30px; /* Adiciona um pouco mais de espaço acima dos títulos */
     }
     .content-box { /* Novo estilo para os boxes de Histórico e Títulos */
         background-color: rgba(255, 121, 0, 0.1); /* Laranja sombreado 10% */
@@ -117,7 +111,6 @@
     .content-box li {
         margin-bottom: 5px;
     }
-
 
     p, ul, li {
       font-size: 1.08rem;
@@ -189,22 +182,13 @@
       background: #fffaf5; /* Linhas ímpares */
     }
 
-    /* Logo na página 4 */
-    .lie-logo { /* davilogo.png na página LIE */
-        max-width: 250px;
-        height: auto;
-        display: block;
-        margin: 20px auto 30px auto;
-        border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
+    /* Logos na página LIE */
     .viva-lie-logo { /* viva.png na página LIE, acima da tabela de ISS */
         max-width: 220px;
         height: auto;
         display: block;
         margin: 30px auto 15px auto;
     }
-
 
     /* Estilos para o novo conteúdo do Projeto (Página 3) */
     .projeto-section-title { /* Estilo similar ao h2 existente */
@@ -299,8 +283,11 @@
         .album {
             grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas menores */
         }
-        .header-logo {
-            height: 90px;
+        .header-logo-main {
+            height: 120px; /* Ajuste para telas menores */
+        }
+        .header-logo-secondary {
+            height: 70px; /* Ajuste para telas menores */
         }
         .page-title {
             font-size: 1.8rem;
@@ -309,17 +296,17 @@
             padding: 8px 15px;
             font-size: 0.9rem;
         }
-        .header-davi-logo-lie {
-            height: 60px;
-        }
     }
 
     @media (max-width: 480px) {
         .album {
             grid-template-columns: 1fr; /* 1 coluna em telas muito pequenas */
         }
-        .header-logo {
-            height: 70px;
+        .header-logo-main {
+            height: 90px; /* Ajuste para telas menores */
+        }
+        .header-logo-secondary {
+            height: 50px; /* Ajuste para telas menores */
         }
         .page-title {
             font-size: 1.5rem;
@@ -330,16 +317,13 @@
         .nav-btn {
             margin: 5px;
         }
-        .header-davi-logo-lie {
-            height: 50px;
-        }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="viva.jpg" alt="Logo Viva Esporte" class="header-logo" /> 
-    <img src="davilogo.png" alt="Logo Davi Lobo" class="header-davi-logo-lie" id="daviLogoLieHeader" />
+    <img src="davilogo.png" alt="Logo Davi Lobo" class="header-logo-main" id="daviLogoMainHeader" /> 
+    <img src="viva.jpg" alt="Logo Viva Esporte" class="header-logo-secondary" id="vivaLogoHeader" />
     <div class="page-title">DAVI LOBO MESATENISTA</div>
   </header>
   <nav>
@@ -532,12 +516,17 @@
     document.getElementById(pageId).style.display = 'block';
     document.querySelector(`.nav-btn[onclick*="${pageId}"]`).classList.add('selected');
 
-    // Lógica para mostrar/esconder o logo "davilogo.png" no cabeçalho
-    const daviLogoLieHeader = document.getElementById('daviLogoLieHeader');
+    const daviLogoMainHeader = document.getElementById('daviLogoMainHeader');
+    const vivaLogoHeader = document.getElementById('vivaLogoHeader');
+    
+    // Mostra o logo principal do Davi em todas as páginas
+    daviLogoMainHeader.style.display = 'block'; 
+
+    // O logo Viva Esporte (viva.jpg) deve aparecer em todas as páginas, exceto 'lie'
     if (pageId === 'lie') {
-        daviLogoLieHeader.style.display = 'block'; // Exibe o logo no cabeçalho na página LIE
+        vivaLogoHeader.style.display = 'none'; // Esconde na página LIE
     } else {
-        daviLogoLieHeader.style.display = 'none'; // Esconde em outras páginas
+        vivaLogoHeader.style.display = 'block'; // Mostra nas outras páginas
     }
   }
 
@@ -578,8 +567,11 @@
       const initialPageId = initialPageButton.getAttribute('onclick').match(/'([^']+)'/)[1];
       showPage(initialPageId); // Chama showPage para aplicar a lógica do logo
     } else {
-      // Caso não haja botão selecionado, esconda o logo por segurança
-      document.getElementById('daviLogoLieHeader').style.display = 'none';
+      // Caso não haja botão selecionado, exiba o logo padrão
+      document.getElementById('daviLogoMainHeader').style.display = 'block';
+      document.getElementById('vivaLogoHeader').style.display = 'block';
+      // Assegura que a página inicial esteja visível por padrão se não houver seleção
+      document.getElementById('inicio').style.display = 'block';
     }
   });
 </script>
