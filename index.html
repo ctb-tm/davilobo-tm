@@ -22,7 +22,7 @@
       position: relative;
     }
     .header-logo-main {
-      height: 120px; /* ALTERADO: Altura de 120px para davilogo.png */
+      height: 120px; /* Altura de 120px para davilogo.png */
       width: auto; /* Mantém a proporção */
       margin: 0 auto 5px auto; /* Centraliza e adiciona margem inferior menor */
       display: block;
@@ -87,18 +87,20 @@
       border-bottom: none;
       margin-top: 30px;
     }
-    .content-box { /* Box sombreado para Histórico e Títulos */
-        background-color: rgba(255, 121, 0, 0.1); /* Laranja sombreado 10% */
-        border: 1px solid #ff7900; /* Borda laranja */
+    
+    /* CORREÇÃO: Forçar a caixa box na página 1 com 20% de laranja sombreado */
+    main#inicio .content-box { /* Aumentando a especificidade */
+        background-color: rgba(255, 121, 0, 0.2) !important; /* Laranja sombreado 20% com !important para garantir */
+        border: 1px solid #ff7900;
         padding: 20px;
         margin-top: 15px;
         margin-bottom: 25px;
-        color: #222; /* Fontes pretas */
+        color: #222;
         border-radius: 12px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
     .content-box p {
-        margin-bottom: 1em; /* Garante espaçamento entre parágrafos no box */
+        margin-bottom: 1em;
     }
     .content-box ul {
         list-style-type: disc;
@@ -190,7 +192,7 @@
     }
 
     .viva-lie-logo {
-        height: 139px; /* ALTERADO: Altura de 139px para viva.png */
+        height: 139px; /* Altura de 139px para viva.png */
         width: auto; /* Largura automática para manter proporção */
         display: block;
         margin: 0 auto; /* Centraliza a imagem dentro do container */
