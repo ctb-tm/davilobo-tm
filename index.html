@@ -18,16 +18,15 @@
     header {
       background: #cccccc; /* Cinza claro */
       text-align: center;
-      padding: 36px 0 24px 0;
-      position: relative; /* Necessário para posicionar outros elementos se houver */
+      padding: 20px 0 15px 0; /* REDUZIDO: Ajustado o padding para diminuir a altura do cabeçalho */
+      position: relative;
     }
-    .header-logo-main { /* Estilo para a logo principal (agora davilogo.png) */
-      height: 200px; /* Altura de 200px */
+    .header-logo-main {
+      height: 160px; /* ALTERADO: Altura de 160px para davilogo.png */
       width: auto; /* Mantém a proporção */
-      margin: 0 auto 10px auto; /* Centraliza e adiciona margem inferior */
-      display: block; /* Garante que ocupe sua própria linha */
+      margin: 0 auto 8px auto; /* Centraliza e adiciona margem inferior menor */
+      display: block;
     }
-    /* Removido o estilo .header-logo-secondary pois não será mais usado no cabeçalho */
     .page-title {
       font-size: 2.2rem;
       font-weight: bold;
@@ -85,8 +84,8 @@
       padding: 10px 15px;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra suave */
-      border-bottom: none; /* Removendo a borda de h2 para não conflitar visualmente */
-      margin-top: 30px; /* Adiciona um pouco mais de espaço acima dos títulos */
+      border-bottom: none;
+      margin-top: 30px;
     }
     .content-box { /* Novo estilo para os boxes de Histórico e Títulos */
         background-color: rgba(255, 121, 0, 0.1); /* Laranja sombreado 10% */
@@ -147,7 +146,7 @@
       box-shadow: 0 2px 12px rgba(242, 125, 31, 0.33); /* Sombra suave para imagens */
       display: block;
       transition: box-shadow .18s;
-      cursor: pointer; /* Indica que é clicável */
+      cursor: pointer;
     }
     .album img:hover {
       box-shadow: 0 8px 32px rgba(255, 121, 0, 0.6); /* Sombra mais intensa no hover */
@@ -163,7 +162,7 @@
     .tabela th, .tabela td {
       padding: 8px;
       border: 1px solid #cccccc;
-      text-align: left; /* Alinhamento de texto padrão para tabelas */
+      text-align: left;
     }
     .tabela th {
         background: #ff7900;
@@ -178,30 +177,30 @@
     }
 
     /* Logos na página LIE */
-    .viva-lie-logo { /* viva.png na página LIE, acima da tabela de ISS */
-        max-width: 220px;
-        height: auto;
+    .viva-lie-logo {
+        max-width: auto; /* Mantém a proporção */
+        height: 160px; /* ALTERADO: Altura de 160px para viva.png na página LIE */
         display: block;
         margin: 30px auto 15px auto;
     }
 
     /* Estilos para o novo conteúdo do Projeto (Página 3) */
-    .projeto-section-title { /* Estilo similar ao h2 existente */
-      background-color: #ff7900; /* Laranja da página */
+    .projeto-section-title {
+      background-color: #ff7900;
       color: #ffffff;
       font-weight: bold;
       padding: 12px 20px;
       font-size: 1.2em;
       margin-top: 30px;
-      border-radius: 8px; /* Cantos arredondados */
+      border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
     .projeto-box {
-      background-color: #fff1e0; /* Laranja bem claro, similar ao background da tabela */
-      border: 2px solid #ff7900; /* Borda laranja */
+      background-color: #fff1e0;
+      border: 2px solid #ff7900;
       padding: 20px;
       margin: 0 0 25px 0;
-      color: #222; /* Texto preto */
+      color: #222;
       border-radius: 8px;
     }
     .projeto-box ul {
@@ -215,25 +214,25 @@
     
     /* Estilos do Modal para expansão da imagem */
     .modal {
-        display: none; /* Escondido por padrão */
-        position: fixed; /* Fica por cima de tudo */
-        z-index: 1000; /* Z-index alto para garantir que esteja acima de outros elementos */
+        display: none;
+        position: fixed;
+        z-index: 1000;
         left: 0;
         top: 0;
-        width: 100%; /* Largura total */
-        height: 100%; /* Altura total */
-        overflow: auto; /* Adiciona scroll se a imagem for maior que a tela */
-        background-color: rgba(0,0,0,0.8); /* Fundo preto semi-transparente */
-        backdrop-filter: blur(5px); /* Efeito de blur no fundo */
-        -webkit-backdrop-filter: blur(5px); /* Para compatibilidade com Safari */
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.8);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
     }
     .modal-content {
         margin: auto;
         display: block;
         width: 80%;
         max-width: 700px;
-        max-height: 90vh; /* Para garantir que caiba na tela */
-        object-fit: contain; /* Garante que a imagem caiba no modal sem cortar */
+        max-height: 90vh;
+        object-fit: contain;
         animation-name: zoom;
         animation-duration: 0.6s;
     }
@@ -245,7 +244,7 @@
         text-align: center;
         color: #ccc;
         padding: 10px 0;
-        height: 150px; /* Altura do caption */
+        height: 150px;
     }
     .modal-close {
         position: absolute;
@@ -276,12 +275,11 @@
     /* Responsividade do álbum para telas menores */
     @media (max-width: 768px) {
         .album {
-            grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas menores */
+            grid-template-columns: repeat(2, 1fr);
         }
         .header-logo-main {
-            height: 120px; /* Ajuste para telas menores */
+            height: 100px; /* Ajuste para telas menores */
         }
-        /* Removido o estilo .header-logo-secondary responsivo */
         .page-title {
             font-size: 1.8rem;
         }
@@ -289,24 +287,29 @@
             padding: 8px 15px;
             font-size: 0.9rem;
         }
+        .viva-lie-logo {
+            height: 120px; /* Ajuste para telas menores */
+        }
     }
 
     @media (max-width: 480px) {
         .album {
-            grid-template-columns: 1fr; /* 1 coluna em telas muito pequenas */
+            grid-template-columns: 1fr;
         }
         .header-logo-main {
-            height: 90px; /* Ajuste para telas menores */
+            height: 80px; /* Ajuste para telas menores */
         }
-        /* Removido o estilo .header-logo-secondary responsivo */
         .page-title {
             font-size: 1.5rem;
         }
         nav {
-            flex-wrap: wrap; /* Permite que os botões quebrem a linha */
+            flex-wrap: wrap;
         }
         .nav-btn {
             margin: 5px;
+        }
+        .viva-lie-logo {
+            height: 100px; /* Ajuste para telas muito pequenas */
         }
     }
   </style>
@@ -505,9 +508,6 @@
     document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('selected'));
     document.getElementById(pageId).style.display = 'block';
     document.querySelector(`.nav-btn[onclick*="${pageId}"]`).classList.add('selected');
-
-    // A logo davilogo.png no cabeçalho não precisa de manipulação JS para visibilidade,
-    // pois é a única presente e sempre visível.
   }
 
   // Lógica do Modal para expandir imagens
@@ -518,7 +518,7 @@
   function openModal(element) {
     modal.style.display = "block";
     modalImg.src = element.src;
-    captionText.innerHTML = element.alt; // Usa o alt da imagem como legenda
+    captionText.innerHTML = element.alt;
   }
 
   function closeModal() {
@@ -540,7 +540,6 @@
   });
 
   // Garante que a página inicial esteja visível por padrão ao carregar a página.
-  // A logo do cabeçalho já está definida para sempre aparecer.
   document.addEventListener('DOMContentLoaded', () => {
     const initialPageButton = document.querySelector('.nav-btn.selected');
     if (initialPageButton) {
