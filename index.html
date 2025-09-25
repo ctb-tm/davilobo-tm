@@ -20,9 +20,9 @@
       text-align: center;
       padding: 36px 0 24px 0;
     }
-    .header-logo { /* Estilo para a logo davilogo.png no cabeçalho */
-      height: 140px; /* Altura fixa para a logo */
-      max-width: 360px; /* Largura máxima */
+    .header-logo { /* Estilo para a logo viva.jpg no cabeçalho */
+      height: 120px; /* Altura fixa para a logo */
+      max-width: 340px; /* Largura máxima */
       width: auto; /* Mantém a proporção */
       margin: 0 auto 10px auto; /* Centraliza e adiciona margem inferior */
       display: block; /* Garante que ocupe sua própria linha */
@@ -105,9 +105,10 @@
       border-radius: 12px;
       display: block;
     }
+    /* Estilos do Álbum de Fotos (alterado para 4 colunas) */
     .album {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsivo, mínimo 180px por coluna */
+      grid-template-columns: repeat(4, 1fr); /* Duas fileiras de 4 fotos */
       gap: 22px;
       margin-top: 22px;
     }
@@ -121,6 +122,7 @@
       box-shadow: 0 2px 12px rgba(242, 125, 31, 0.33); /* Sombra suave para imagens */
       display: block;
       transition: box-shadow .18s;
+      cursor: pointer; /* Indica que é clicável */
     }
     .album img:hover {
       box-shadow: 0 8px 32px rgba(255, 121, 0, 0.6); /* Sombra mais intensa no hover */
@@ -159,11 +161,134 @@
         border-radius: 8px; /* Pequenas bordas arredondadas */
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
+
+    /* Estilos para o novo conteúdo do Projeto (Página 3) */
+    .projeto-section-title { /* Estilo similar ao h2 existente */
+      background-color: #ff7900; /* Laranja da página */
+      color: #ffffff;
+      font-weight: bold;
+      padding: 12px 20px;
+      font-size: 1.2em;
+      margin-top: 30px;
+      border-radius: 8px; /* Cantos arredondados */
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .projeto-box {
+      background-color: #fff1e0; /* Laranja bem claro, similar ao background da tabela */
+      border: 2px solid #ff7900; /* Borda laranja */
+      padding: 20px;
+      margin: 0 0 25px 0;
+      color: #222; /* Texto preto */
+      border-radius: 8px;
+    }
+    .projeto-box ul {
+        list-style-type: disc;
+        margin-left: 20px;
+        padding-left: 0;
+    }
+    .projeto-box li {
+        margin-bottom: 8px;
+    }
+    
+    /* Estilos do Modal para expansão da imagem */
+    .modal {
+        display: none; /* Escondido por padrão */
+        position: fixed; /* Fica por cima de tudo */
+        z-index: 1000; /* Z-index alto para garantir que esteja acima de outros elementos */
+        left: 0;
+        top: 0;
+        width: 100%; /* Largura total */
+        height: 100%; /* Altura total */
+        overflow: auto; /* Adiciona scroll se a imagem for maior que a tela */
+        background-color: rgba(0,0,0,0.8); /* Fundo preto semi-transparente */
+        backdrop-filter: blur(5px); /* Efeito de blur no fundo */
+        -webkit-backdrop-filter: blur(5px); /* Para compatibilidade com Safari */
+    }
+    .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+        max-height: 90vh; /* Para garantir que caiba na tela */
+        object-fit: contain; /* Garante que a imagem caiba no modal sem cortar */
+        animation-name: zoom;
+        animation-duration: 0.6s;
+    }
+    .modal-caption {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+        text-align: center;
+        color: #ccc;
+        padding: 10px 0;
+        height: 150px; /* Altura do caption */
+    }
+    .modal-close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+    .modal-close:hover,
+    .modal-close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    /* Animação de zoom */
+    @keyframes zoom {
+        from {transform: scale(0.1)}
+        to {transform: scale(1)}
+    }
+    @-webkit-keyframes zoom {
+        from {-webkit-transform: scale(0.1)}
+        to {-webkit-transform: scale(1)}
+    }
+    
+    /* Responsividade do álbum para telas menores */
+    @media (max-width: 768px) {
+        .album {
+            grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas menores */
+        }
+        .header-logo {
+            height: 90px;
+        }
+        .page-title {
+            font-size: 1.8rem;
+        }
+        .nav-btn {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .album {
+            grid-template-columns: 1fr; /* 1 coluna em telas muito pequenas */
+        }
+        .header-logo {
+            height: 70px;
+        }
+        .page-title {
+            font-size: 1.5rem;
+        }
+        nav {
+            flex-wrap: wrap; /* Permite que os botões quebrem a linha */
+        }
+        .nav-btn {
+            margin: 5px;
+        }
+    }
   </style>
 </head>
 <body>
   <header>
-    <img src="davilogo.png" alt="Logo Viva Esporte" class="header-logo" /> 
+    <img src="viva.jpg" alt="Logo Viva Esporte" class="header-logo" /> 
     <div class="page-title">DAVI LOBO MESATENISTA</div>
   </header>
   <nav>
@@ -175,16 +300,6 @@
 
   <main id="inicio">
     <section>
-      <h2>Histórico</h2>
-      <p>
-        Davi Lobo Silva, 12 anos, estudante do Colégio Militar de Salvador, é um jovem atleta que une talento e determinação, conquistando espaço como uma das grandes revelações do tênis de mesa na Bahia. Sua trajetória na modalidade começou em 2024, de forma espontânea, durante os intervalos escolares. Com o tempo, passou a praticar também em espaços públicos com os amigos, momento em que sua afinidade com o esporte se fortaleceu.
-
-Em apenas um ano de prática, Davi transformou o entusiasmo inicial em desempenho consistente, alcançando conquistas de destaque que o consolidaram como uma das principais promessas do tênis de mesa no estado. Seu comprometimento e evolução técnica o levaram a superar adversários mais experientes, destacando-se em competições oficiais nas categorias Sub-13 e Sub-15.
-
-Alinhando disciplina acadêmica e dedicação esportiva, Davi vem demonstrando uma evolução notável. Com apoio da Federação de Tênis de Mesa da Bahia (FTMBA), segue em pleno desenvolvimento, buscando consolidar-se como referência nacional da nova geração e inspirar outros jovens atletas a acreditarem no poder transformador do esporte.
-      </p>
-    </section>
-    <section>
       <h2>Vídeo Apresentação</h2>
       <div class="video-container">
         <video src="video.mp4" controls poster="davi1.jpg">
@@ -192,14 +307,36 @@ Alinhando disciplina acadêmica e dedicação esportiva, Davi vem demonstrando u
         </video>
       </div>
     </section>
+    
+    <section>
+      <h2>Histórico</h2>
+      <p>
+        Davi Lobo Silva, 12 anos, estudante do Colégio Militar de Salvador, é um jovem atleta que une talento e determinação no tênis de mesa. Sua jornada começou cedo, e ele já demonstra grande potencial para se destacar no esporte, com um futuro promissor pela frente.
+      </p>
+      <p>
+        Desde os primeiros contatos com a raquete, Davi mostrou uma habilidade natural e uma paixão pelo tênis de mesa. Com disciplina nos treinos e foco nas competições, ele vem conquistando resultados expressivos em sua categoria, projetando-se como uma das grandes promessas do esporte na Bahia e no Brasil.
+      </p>
+    </section>
+    
     <section>
       <h2>Títulos e Conquistas</h2>
       <ul>
-        <li>3º lugar na Copa Brasil Sub-13 (2023)</li>
-        <li>Vice-Campeão Baiano Sub-13 (2023)</li>
-        <li>Campeão Estadual por Equipes Sub-13 (2023)</li>
-        <li>Top 8 no Campeonato Brasileiro Sub-11 (2022)</li>
-        <li>Vários títulos em etapas estaduais e torneios regionais.</li>
+        <li><strong>2025</strong></li>
+        <li>3º lugar – Copa Brasil de Tênis de Mesa Sub-13</li>
+        <li>Vice-Campeão Sub-13 – 1ª Etapa do Campeonato Baiano</li>
+        <li>Vice-Campeão Sub-13 – 2ª Etapa do Campeonato Baiano</li>
+        <li>3º lugar Sub-13 – 3ª Etapa do Campeonato Baiano</li>
+        <li>Vice-Campeão Sub-13 – 4ª Etapa do Campeonato Baiano</li>
+        <li>3º lugar Sub-15 – Campeonato Baiano</li>
+        <li>Vice-Campeão Sub-15 – Rating F</li>
+        <li>3º lugar Sub-15 – Rating E</li>
+        <li>Campeão – Torneio Principiante da ABTM</li>
+        <li>Vice-Campeão – Divisão Infantil da ETMPAN</li>
+        <li>3º lugar – Divisão Infantil da ETMPAN</li>
+        <li>3x Vice-Campeão – 3ª Divisão da ETMPAN</li>
+        <li>Campeão – 3ª Divisão da ETMPAN</li>
+        <li>3º lugar – 3ª Divisão da ETMPAN</li>
+        <li>3º lugar – 2ª Divisão da ETMPAN</li>
       </ul>
     </section>
   </main>
@@ -208,29 +345,59 @@ Alinhando disciplina acadêmica e dedicação esportiva, Davi vem demonstrando u
     <section>
       <h2>Álbum de Fotos</h2>
       <div class="album">
-        <img src="davi1.jpg" alt="Davi Lobo em ação 1">
-        <img src="davi2.jpg" alt="Davi Lobo em ação 2">
-        <img src="davi3.jpg" alt="Davi Lobo em ação 3">
-        <img src="davi4.jpg" alt="Davi Lobo no pódio">
-        <img src="davi5.jpg" alt="Davi Lobo treinando">
-        <img src="davi6.jpg" alt="Davi Lobo com a raquete">
+        <img src="davi1.jpg" alt="Davi Lobo em ação 1" onclick="openModal(this)">
+        <img src="davi2.jpg" alt="Davi Lobo em ação 2" onclick="openModal(this)">
+        <img src="davi3.jpg" alt="Davi Lobo em ação 3" onclick="openModal(this)">
+        <img src="davi4.jpg" alt="Davi Lobo no pódio" onclick="openModal(this)">
+        <img src="davi5.jpg" alt="Davi Lobo treinando" onclick="openModal(this)">
+        <img src="davi6.jpg" alt="Davi Lobo com a raquete" onclick="openModal(this)">
+        <img src="davi7.jpg" alt="Davi Lobo em outra competição" onclick="openModal(this)">
+        <img src="davi8.jpg" alt="Davi Lobo sorrindo" onclick="openModal(this)">
       </div>
     </section>
   </main>
 
   <main id="projeto" style="display:none;">
     <section>
-      <h2>Projeto Esportivo</h2>
-      <p>
-        O projeto visa o desenvolvimento contínuo de Davi Lobo como atleta de tênis de mesa, proporcionando o suporte necessário para sua evolução técnica, física e mental. Inclui participação em campeonatos nacionais e internacionais, treinamentos especializados e acompanhamento multidisciplinar.
-      </p>
-      <ul>
-        <li><strong>Nome do Projeto:</strong> Desenvolvimento Esportivo Davi Lobo</li>
-        <li><strong>Objetivo:</strong> Consolidar Davi Lobo como um atleta de alto rendimento no tênis de mesa brasileiro e internacional.</li>
-        <li><strong>Metas:</strong> Top 3 no ranking nacional Sub-13, participação em torneios sul-americanos, representação da seleção baiana.</li>
-        <li><strong>Período:</strong> 2026</li>
-      </ul>
+      <div class="projeto-section-title">OBJETIVO</div>
+      <div class="projeto-box">
+        Consolidar Davi Lobo Silva como referência no tênis de mesa nacional nas categorias Sub-13 e Sub-15, promovendo seu desenvolvimento técnico, físico e social por meio de um programa de alto rendimento.
+      </div>
+
+      <div class="projeto-section-title">OBJETIVOS ESPECÍFICOS</div>
+      <div class="projeto-box">
+        <ul>
+          <li>Participar de no mínimo 15 competições oficiais nas categorias Sub-13 e Sub-15;</li>
+          <li>Manter-se entre os 3 melhores do ranking estadual Sub-13 e Sub-15;</li>
+          <li>Realizar 5 sessões semanais de treinamento técnico em academia especializada;</li>
+          <li>Oferecer acompanhamento multidisciplinar (médico, nutricional e psicológico);</li>
+          <li>Inspirar jovens atletas da base com ações de mentoria.</li>
+        </ul>
+      </div>
+
+      <div class="projeto-section-title">METODOLOGIA</div>
+      <div class="projeto-box">
+        <ul>
+          <li>5 sessões semanais de treinos técnico-táticos e específicos para as categorias Sub-13 e Sub-15;</li>
+          <li>Condicionamento físico focado em agilidade, resistência e rapidez de reação;</li>
+          <li>Avaliações periódicas (técnicas, físicas e mentais) com registros audiovisuais;</li>
+          <li>Acompanhamento médico, nutricional e psicológico contínuo;</li>
+          <li>Planejamento de calendário competitivo para maximizar experiência e visibilidade.</li>
+        </ul>
+      </div>
+
+      <div class="projeto-section-title">CONTRAPARTIDAS</div>
+      <div class="projeto-box">
+        <ul>
+          <li>Realização de 2 clínicas de tênis de mesa em unidades da Rede D'Or para pacientes e colaboradores;</li>
+          <li>Palestras motivacionais sobre disciplina e superação;</li>
+          <li>Campanha de comunicação integrada com visibilidade da marca apoiadora;</li>
+          <li>Espaço interativo nas unidades da Rede D’Or para demonstração do esporte;</li>
+          <li>Distribuição de brindes personalizados relacionados ao projeto.</li>
+        </ul>
+      </div>
     </section>
+    
     <section>
       <h2>Orçamento Necessário</h2>
       <table class="tabela">
@@ -243,10 +410,10 @@ Alinhando disciplina acadêmica e dedicação esportiva, Davi vem demonstrando u
         <tbody>
           <tr><td>Passagens e Hospedagem (competições)</td><td>15.000,00</td></tr>
           <tr><td>Inscrições em Torneios</td><td>3.000,00</td></tr>
-          <tr><td>Materiais Esportivos (raquetes, borrachas, etc.)</td><td>6.000,00</td></tr>
+          <tr><td>Materiais Esportivos (raquetes, borrachas, etc.)</td><td>4.000,00</td></tr>
           <tr><td>Treinamento Especializado</td><td>10.000,00</td></tr>
           <tr><td>Acompanhamento Físico e Nutricional</td><td>6.000,00</td></tr>
-          <tr><td>Total Anual Estimado</td><td>40.000,00</td></tr>
+          <tr><td>Total Anual Estimado</td><td>38.000,00</td></tr>
         </tbody>
       </table>
       <p style="margin-top: 15px;">
@@ -264,7 +431,7 @@ Alinhando disciplina acadêmica e dedicação esportiva, Davi vem demonstrando u
       <p>
         O Programa Viva Esporte é uma excelente oportunidade para empresas e cidadãos contribuírem diretamente para o desenvolvimento do esporte na cidade, associando sua imagem a um projeto de sucesso e ao talento de Davi Lobo.
       </p>
-      <img src="viva.png" alt="Logo Davi Lobo" class="lie-logo" /> 
+      <img src="davilogo.jpg" alt="Logo Davi Lobo" class="lie-logo" /> 
     </section>
     <section>
       <h2>Simulação de Incentivo Fiscal (Exemplo para Empresas)</h2>
@@ -289,26 +456,47 @@ Alinhando disciplina acadêmica e dedicação esportiva, Davi vem demonstrando u
     </section>
   </main>
 
+  <div id="myModal" class="modal">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="modalCaption" class="modal-caption"></div>
+  </div>
+
 <script>
-  // Função para exibir a página selecionada e destacar o botão correspondente
   function showPage(pageId) {
-    // Esconde todas as seções de conteúdo principal
     document.querySelectorAll('main').forEach(el => el.style.display = 'none');
-    
-    // Remove a classe 'selected' de todos os botões de navegação
     document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('selected'));
-    
-    // Exibe a seção de conteúdo correspondente ao ID da página
-    document.getElementById(pageId).style.display = 'block'; // Use 'block' para exibir, pois 'main' é um elemento de bloco por padrão
-    
-    // Adiciona a classe 'selected' ao botão que ativou a página
+    document.getElementById(pageId).style.display = 'block';
     document.querySelector(`.nav-btn[onclick*="${pageId}"]`).classList.add('selected');
   }
 
-  // Opcional: Chamar showPage('inicio') ao carregar a página para garantir que a página inicial esteja visível.
-  // Isso já é tratado pelo 'selected' no HTML, mas é uma boa prática para JS puro.
-  document.addEventListener('DOMContentLoaded', () => {
-      // showPage('inicio'); // Descomentar se o display:none inicial em main for problemático
+  // Lógica do Modal para expandir imagens
+  var modal = document.getElementById("myModal");
+  var modalImg = document.getElementById("img01");
+  var captionText = document.getElementById("modalCaption");
+
+  function openModal(element) {
+    modal.style.display = "block";
+    modalImg.src = element.src;
+    captionText.innerHTML = element.alt; // Usa o alt da imagem como legenda
+  }
+
+  function closeModal() {
+    modal.style.display = "none";
+  }
+
+  // Fecha o modal ao clicar fora da imagem
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+        closeModal();
+    }
+  });
+
+  // Fecha o modal ao pressionar ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === "Escape" && modal.style.display === "block") {
+      closeModal();
+    }
   });
 </script>
 </body>
