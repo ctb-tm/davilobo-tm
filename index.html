@@ -18,11 +18,11 @@
     header {
       background: #cccccc; /* Cinza claro */
       text-align: center;
-      padding: 20px 0 15px 0; /* REDUZIDO: Ajustado o padding para diminuir a altura do cabeçalho */
+      padding: 20px 0 15px 0; /* Ajustado para reduzir a altura do cabeçalho */
       position: relative;
     }
     .header-logo-main {
-      height: 160px; /* ALTERADO: Altura de 160px para davilogo.png */
+      height: 160px; /* Altura de 160px para davilogo.png */
       width: auto; /* Mantém a proporção */
       margin: 0 auto 8px auto; /* Centraliza e adiciona margem inferior menor */
       display: block;
@@ -68,8 +68,8 @@
       margin: 0 auto;
       padding: 36px 20px 50px 20px;
       background: #ff7900; /* Laranja principal */
-      border-radius: 0 0 34px 34px; /* Borda arredondada na parte inferior */
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave para destacar o conteúdo */
+      border-radius: 0 0 34px 34px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
     section {
       margin-bottom: 32px;
@@ -77,17 +77,17 @@
     /* Estilos dos Títulos e Boxes da Página Inicial */
     h2 {
       font-size: 1.35rem;
-      color: black; /* Fontes pretas */
+      color: black;
       font-weight: bold;
       margin-bottom: 14px;
       background: #ff7900; /* Fundo laranja 100% para os títulos */
       padding: 10px 15px;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra suave */
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       border-bottom: none;
       margin-top: 30px;
     }
-    .content-box { /* Novo estilo para os boxes de Histórico e Títulos */
+    .content-box { /* Box sombreado para Histórico e Títulos */
         background-color: rgba(255, 121, 0, 0.1); /* Laranja sombreado 10% */
         border: 1px solid #ff7900; /* Borda laranja */
         padding: 20px;
@@ -96,6 +96,9 @@
         color: #222; /* Fontes pretas */
         border-radius: 12px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+    .content-box p {
+        margin-bottom: 1em;
     }
     .content-box ul {
         list-style-type: disc;
@@ -118,9 +121,9 @@
       width: 100%;
       max-width: 580px;
       margin: 18px auto;
-      background: #444; /* Fundo escuro para o vídeo */
+      background: #444;
       border-radius: 14px;
-      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3); /* Sombra para o vídeo */
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
     }
     video {
       width: 100%;
@@ -129,10 +132,10 @@
       border-radius: 12px;
       display: block;
     }
-    /* Estilos do Álbum de Fotos (alterado para 4 colunas) */
+    /* Estilos do Álbum de Fotos */
     .album {
       display: grid;
-      grid-template-columns: repeat(4, 1fr); /* Duas fileiras de 4 fotos */
+      grid-template-columns: repeat(4, 1fr);
       gap: 22px;
       margin-top: 22px;
     }
@@ -143,13 +146,13 @@
       border-radius: 12px;
       background: #fff1e0;
       border: 2.5px solid #fff1e0;
-      box-shadow: 0 2px 12px rgba(242, 125, 31, 0.33); /* Sombra suave para imagens */
+      box-shadow: 0 2px 12px rgba(242, 125, 31, 0.33);
       display: block;
       transition: box-shadow .18s;
       cursor: pointer;
     }
     .album img:hover {
-      box-shadow: 0 8px 32px rgba(255, 121, 0, 0.6); /* Sombra mais intensa no hover */
+      box-shadow: 0 8px 32px rgba(255, 121, 0, 0.6);
     }
     .tabela {
       width: 100%;
@@ -170,18 +173,27 @@
         font-weight: bold;
     }
     .tabela tr:nth-child(even) {
-      background: #ffe1bf; /* Linhas pares */
+      background: #ffe1bf;
     }
     .tabela tr:nth-child(odd) {
-      background: #fffaf5; /* Linhas ímpares */
+      background: #fffaf5;
     }
 
-    /* Logos na página LIE */
+    /* Fundo da logo Viva Esporte na página LIE */
+    .viva-logo-container { /* Novo container para o fundo */
+      background-color: rgba(255, 121, 0, 0.1); /* Laranja sombreado 10% */
+      padding: 20px 0; /* Espaçamento vertical para o fundo */
+      margin: 30px 0 15px 0; /* Margem para separar de outros elementos, laterais 100% vêm do main */
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      text-align: center; /* Centraliza a imagem dentro dele */
+    }
+
     .viva-lie-logo {
-        max-width: auto; /* Mantém a proporção */
-        height: 160px; /* ALTERADO: Altura de 160px para viva.png na página LIE */
+        height: 160px; /* Altura de 160px para viva.png */
+        width: auto; /* Largura automática para manter proporção */
         display: block;
-        margin: 30px auto 15px auto;
+        margin: 0 auto; /* Centraliza a imagem dentro do container */
     }
 
     /* Estilos para o novo conteúdo do Projeto (Página 3) */
@@ -272,13 +284,13 @@
         to {-webkit-transform: scale(1)}
     }
     
-    /* Responsividade do álbum para telas menores */
+    /* Responsividade */
     @media (max-width: 768px) {
         .album {
             grid-template-columns: repeat(2, 1fr);
         }
         .header-logo-main {
-            height: 100px; /* Ajuste para telas menores */
+            height: 100px;
         }
         .page-title {
             font-size: 1.8rem;
@@ -287,8 +299,12 @@
             padding: 8px 15px;
             font-size: 0.9rem;
         }
+        .viva-logo-container { /* Ajuste responsivo para o container da logo viva */
+            padding: 15px 0;
+            margin: 20px 0 10px 0;
+        }
         .viva-lie-logo {
-            height: 120px; /* Ajuste para telas menores */
+            height: 120px;
         }
     }
 
@@ -297,7 +313,7 @@
             grid-template-columns: 1fr;
         }
         .header-logo-main {
-            height: 80px; /* Ajuste para telas menores */
+            height: 80px;
         }
         .page-title {
             font-size: 1.5rem;
@@ -308,8 +324,12 @@
         .nav-btn {
             margin: 5px;
         }
+        .viva-logo-container { /* Ajuste responsivo para o container da logo viva */
+            padding: 10px 0;
+            margin: 15px 0 8px 0;
+        }
         .viva-lie-logo {
-            height: 100px; /* Ajuste para telas muito pequenas */
+            height: 100px;
         }
     }
   </style>
@@ -474,7 +494,8 @@
 
     <section>
       <h2>Simulação de Incentivo Fiscal (Exemplo para Empresas)</h2>
-      <img src="viva.png" alt="Logo Viva Esporte LIE" class="viva-lie-logo" /> 
+      <div class="viva-logo-container"> <img src="viva.png" alt="Logo Viva Esporte LIE" class="viva-lie-logo" /> 
+      </div>
       <table class="tabela">
         <thead>
           <tr>
@@ -510,7 +531,6 @@
     document.querySelector(`.nav-btn[onclick*="${pageId}"]`).classList.add('selected');
   }
 
-  // Lógica do Modal para expandir imagens
   var modal = document.getElementById("myModal");
   var modalImg = document.getElementById("img01");
   var captionText = document.getElementById("modalCaption");
@@ -525,21 +545,18 @@
     modal.style.display = "none";
   }
 
-  // Fecha o modal ao clicar fora da imagem
   modal.addEventListener('click', function(e) {
     if (e.target === modal) {
         closeModal();
     }
   });
 
-  // Fecha o modal ao pressionar ESC
   document.addEventListener('keydown', function(e) {
     if (e.key === "Escape" && modal.style.display === "block") {
       closeModal();
     }
   });
 
-  // Garante que a página inicial esteja visível por padrão ao carregar a página.
   document.addEventListener('DOMContentLoaded', () => {
     const initialPageButton = document.querySelector('.nav-btn.selected');
     if (initialPageButton) {
